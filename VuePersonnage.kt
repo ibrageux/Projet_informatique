@@ -273,6 +273,8 @@ class VuePersonnage @JvmOverloads constructor(context: Context, attributes: Attr
         zombie2 = ArrayList<Zombie>()
         this.visibility = View.VISIBLE
         personnage.life = 300
+        zombie_mort = 0
+        boss.Boss_alive = false
         drawing = true
         if (gameOver) {
             gameOver = false
