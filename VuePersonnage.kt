@@ -43,6 +43,8 @@ class VuePersonnage @JvmOverloads constructor(context: Context, attributes: Attr
     var zombie_mort = 0
     var gameOver = false
     private val activity = context as FragmentActivity
+    var win = false
+    var lose = false
 
     init {
         holder.addCallback(this)
@@ -131,11 +133,7 @@ class VuePersonnage @JvmOverloads constructor(context: Context, attributes: Attr
         }
         if (boss.Boss_alive) {
             if (boule_de_feu.FireOnScreen) {
-                if (RectF.intersects(
-                        boule_de_feu.contour_fireball,
-                        personnage.contour_personnage
-                    )
-                ) {
+                if (RectF.intersects(boule_de_feu.contour_fireball, personnage.contour_personnage)) {
                     if (personnage.life > 0) {
                         personnage.life -= 70
                     } else {
@@ -164,7 +162,6 @@ class VuePersonnage @JvmOverloads constructor(context: Context, attributes: Attr
                 gameOver_win()
             }
             if (personnage.life <= 0 ){
-                //Log.d(TAG, "gameOver_lose: gros caca ")
                 gameOver_lose()
             }
 
@@ -270,7 +267,6 @@ class VuePersonnage @JvmOverloads constructor(context: Context, attributes: Attr
     }
 
     fun newGame() {
-        zombie2 = ArrayList<Zombie>()
         this.visibility = View.VISIBLE
         personnage.life = 300
         zombie_mort = 0
@@ -282,28 +278,30 @@ class VuePersonnage @JvmOverloads constructor(context: Context, attributes: Attr
             thread.start()
         }
     }
-
-    private fun showGameOver( imageId: Int) {
+    private fun showGameOver() {
         activity.runOnUiThread(Runnable {
-            val gameResult = GameOverFragment(this, imageId)
-            val ft = (activity as FragmentActivity).supportFragmentManager.beginTransaction()
+            val gameResult = GameOverFragment(this)
+            val ft = activity.supportFragmentManager.beginTransaction()
             ft.setReorderingAllowed(true)
             ft.add(R.id.fragment_container, gameResult, "gameoverfragment")
             this.visibility = View.INVISIBLE
             ft.commit()
         })
     }
-
-
     private fun gameOver_win() {
         drawing = false
         gameOver = true
-        showGameOver(R.drawable.c_que_la_win)
+        win = true
+        lose = false
+        showGameOver()
     }
 
     fun gameOver_lose() {
         drawing = false
         gameOver = true
-        showGameOver( R.drawable.lose_zomboss)
+        lose = true
+        win = false
+        showGameOver()
+
     }
 }
