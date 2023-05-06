@@ -13,7 +13,7 @@ import com.example.jeuprojet.R
 import com.example.jeuprojet.VuePersonnage
 
 
-class GameOverFragment( var Gview : VuePersonnage, var resImage : Int) : Fragment() {
+class GameOverFragment( var Gview : VuePersonnage) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,28 +23,34 @@ class GameOverFragment( var Gview : VuePersonnage, var resImage : Int) : Fragmen
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater!!.inflate(R.layout.gameover_fragment_layout,container,false)
-        //val tv = view.findViewById<TextView>(R.id.textView)
 
-        val iv = view.findViewById<ImageView>(R.id.imageView)
-        iv.setImageResource(resImage)
+        val winImage = view.findViewById<ImageView>(R.id.winimage)
+        val loseImage = view.findViewById<ImageView>(R.id.loseImage)
+
+        //val iv = view.findViewById<ImageView>(R.id.resImages)
+        //iv.setImageResource(resImage)
+
+            if (Gview.win) {
+
+                winImage.setVisibility(View.VISIBLE)
+                loseImage.setVisibility(View.GONE)
+            }
+            if (Gview.lose){
+                winImage.setVisibility(View.GONE)
+                loseImage.setVisibility(View.VISIBLE)
+            }
+
 
         val buttonReset = view.findViewById<Button>(R.id.buttonreset)
-
-
         buttonReset.setOnClickListener{
             Gview.newGame()
-
-            activity?.runOnUiThread(
-                Runnable {
+            activity?.runOnUiThread(Runnable {
                     val ft = requireActivity().supportFragmentManager.beginTransaction()
                     ft.remove(this)
                     ft.commit()
-
                 }
             )
         }
-
-
         return view
     }
 
