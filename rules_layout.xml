@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
@@ -13,66 +14,52 @@
         app:layout_constraintBaseline_toBaselineOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/menu_background" />
-
 
     <View
         android:id="@+id/view"
         android:layout_width="642dp"
-        android:layout_height="253dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="96dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="229dp"
+        android:layout_marginBottom="84dp"
         android:background="#C6000000"
         app:layout_constraintBottom_toTopOf="@+id/buttonRulesQuit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-50dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="216dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginTop="244dp"
         android:scrollbars="vertical"
-        android:text="Daoud étant l'un des seuls survivants de l'apocalypse de zombies doit faire face à leurs menaces quotidiennement.Pour se faire, il entraîna des plantes pour le protéger des invasions de zombies. Ces plantes ont besoin de soleils qui ont une certaine fréquence d'apparition.Il faut appuyer sur le soleil une fois qu'il est chargé pour augmenter le nombre de crédit.
-\n\nPour combattre les zombies, cinq plantes sont utilisées:\n
--Le tournesol: Cette plante augmente la fréquence d'apparition des soleils.\n
--Pois normal: Cette plante lance des petits pois sur le zombie.\n
--Pois glacé: Cette plante ayant le même mécanisme que le pois normal. Cependant, ses pois ralentissent les zombies.\n
--Bûche en feu: Cette plante placée devant le pois normal transforme les pois en feu infligeant le double de dégâts. Par contre si la bûche est placée devant le pois glacé, celui ci devient un pois normal et perd la capacité de ralentir le zombie.\n
--Noix: Cette plante étant plus robuste que les autres sert de bouclier face aux zombies. La noix n'est malheureusement pas invincible et se dégrade.\n\n
-Les zombies sont rusés et se rassemblent à l'entrée du jardin de Daoud. Il en existe trois type:\n
--Zombie normal\n
--Zombie cône: Ce zombie équipé d'un cône est plus résistant que le zombie normal.\n
--Zombie mage: Ce zombie ne mange pas les plantes. Cependant, ayant des pouvoirs magiques, il peut invoquer des zombies pour les voler aléatoirement.\n\n
-Daoud survit seulement si le joueur réussit à vaincre la vague de zombie quand la barre verte se remplit, indiquant la fin de l'attaque. Le joueur perd lorsqu'un zombie franchît la dernier colonne. Aucune plante peut l'arrêter et ce zombie a la voie libre pour attaquer Daoud."
+        android:text="Bienvenue dans le jeu de survie de zombies. Dans ce jeu, vous jouez le rôle d'un soldat courageux qui doit survivre à une invasion de zombies. Pour survivre, vous devrez éliminer les zombies qui se rapprochent de vous, tout en évitant d'être touché par leurs attaques.Heureusement pour vous, il existe 3 bonus sous forme de boules colorées qui permettent d'augmenter la barre de vie, la vitesse ou les dégâts infligés.\n\n
+Le soldat est équipé d'une arme à feu et peut se déplacer dans toutes les directions à l'aide d'un joystick. Chaque zombie peut être éliminé par une seule balle, mais vous devrez recharger votre arme après un certain nombre de tirs. Si un zombie s'approche trop près du soldat, il vous causera des dégâts, ce qui réduira votre barre de vie.\n\n
+Vous devrez éliminer une horde de zombies avant de pouvoir affronter le boss. Ce dernier lance des projectiles, et vous devrez les esquiver tout en tirant sur lui pour réduire sa barre de vie. Si vous parvenez à tuer le boss, vous remportez la partie. Mais si le personnage du soldat meurt, vous perdrez la partie.\n\n
+Pour résumer, votre objectif dans ce jeu est de survivre à l'invasion de zombies en éliminant tous les ennemis sur votre chemin, en évitant leurs attaques et en affrontant le boss final. Bonne chance !"
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRulesQuit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.186" />
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/buttonRulesQuit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="117dp"
         android:text="Compris"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
